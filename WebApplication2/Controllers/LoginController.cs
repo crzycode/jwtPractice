@@ -10,9 +10,9 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using WebApplication2.Model;
+using Jwt.Model;
 
-namespace WebApplication2.Controllers
+namespace Jwt.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

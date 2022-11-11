@@ -6,22 +6,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using WebApplication2.Model;
+using Jwt.Model;
 
-namespace WebApplication2.Controllers
+namespace Jwt.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
-        [Authorize]
+        [Authorize(Roles ="admin")]
         [HttpGet("Admins")]
         public IActionResult adminEndpoint()
         {
             var currentuser = getcurrentuser();
             return Ok($"{currentuser.GivenName}, you are an {currentuser.Role}");
         }
-       [HttpGet("public")]
+        [Authorize(Roles = "seller")]
+        [HttpGet("seller")]
+        public IActionResult sellerEndpoint()
+        {
+            var currentuser = getcurrentuser();
+            return Ok($"{currentuser.GivenName}, you are an {currentuser.Role}");
+        }
+
+        [Authorize(Roles = "seller,admin")]
+        [HttpGet("adminseller")]
+        public IActionResult adminseller()
+        {
+            var currentuser = getcurrentuser();
+            return Ok($"{currentuser.GivenName}, you are an {currentuser.Role}");
+        }
+
+        [HttpGet("public")]
        public IActionResult Publics()
         {
             return Ok("hello");

@@ -16,9 +16,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WebApplication2.Model;
+using Jwt.Model;
 
-namespace WebApplication2
+namespace Jwt
 {
     public class Startup
     {

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WebApplication2.Model
+namespace Jwt.Model
 {
     public class Datacontext:DbContext
     {
